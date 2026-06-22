@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}لوحة المالك{% endblock %}
+{% block content %}
+<h2>👑 لوحة المالك</h2>
+<hr>
+<div class="row">
+    <div class="col-md-3"><div class="card text-center"><div class="card-body"><h3>{{ stats.total_users }}</h3><p>المستخدمين</p></div></div></div>
+    <div class="col-md-3"><div class="card text-center"><div class="card-body"><h3>{{ stats.total_deposits }}$</h3><p>الإيداعات</p></div></div></div>
+    <div class="col-md-3"><div class="card text-center"><div class="card-body"><h3>{{ stats.pending_deposits }}</h3><p>معلقة</p></div></div></div>
+    <div class="col-md-3"><div class="card text-center"><div class="card-body"><h3>{{ stats.total_balance }}$</h3><p>الأرصدة</p></div></div></div>
+</div>
+<div class="mt-4">
+    <h5>⏳ طلبات الإيداع المعلقة</h5>
+    <table class="table">
+        <tr><th>المستخدم</th><th>المبلغ</th><th>TXID</th><th>الإجراءات</th></tr>
+        {% for d in deposits %}
+        <tr>
+            <td>{{ d.user.email }}</td>
+            <td>{{ d.amount }} USDT</td>
+            <td><code>{{ d.tx_hash[:10] }}...</code></td>
+            <td>
+                <form method="POST" action="{{ url_for('confirm_deposit', deposit_id=d.id) }}" style="display:inline">
+                    <button class="btn btn-sm btn-success">✅</button>
+                </form>
+                <form method="POST" action="{{ url_for('reject_deposit', deposit_id=d.id) }}" style="display:inline">
+                    <button class="btn btn-sm btn-danger">❌</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
