@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}لوحة التحكم{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card bg-primary text-white text-center p-4">
+            <h2>{{ "%.2f"|format(user.balance) }} USDT</h2>
+            <p>الرصيد الحالي</p>
+            <div>
+                <a href="{{ url_for('deposit') }}" class="btn btn-light">💰 إيداع</a>
+                <a href="{{ url_for('withdraw') }}" class="btn btn-warning">💸 سحب</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"><h5>📋 المهمة اليومية</h5></div>
+            <div class="card-body text-center">
+                {% if can_task %}
+                    <a href="{{ url_for('do_task') }}" class="btn btn-success">✅ أداء المهمة</a>
+                {% else %}
+                    <p>⏳ انتظر 24 ساعة للمهمة التالية</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"><h5>👥 الإحالات</h5></div>
+            <div class="card-body text-center">
+                <p>عدد الإحالات: <strong>{{ user.referral_count }}</strong></p>
+                <a href="{{ url_for('referral') }}" class="btn btn-primary">📤 عرض</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
