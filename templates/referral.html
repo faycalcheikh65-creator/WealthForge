@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}الإحالات{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header"><h4>👥 الإحالات</h4></div>
+            <div class="card-body text-center">
+                <p>رابط الإحالة الخاص بك:</p>
+                <div class="border p-3 bg-light">{{ referral_link }}</div>
+                <button class="btn btn-primary mt-3" onclick="navigator.clipboard.writeText('{{ referral_link }}')">📋 نسخ</button>
+                <hr>
+                <p><strong>عدد الإحالات الناجحة:</strong> {{ successful_refs }}</p>
+                <p><strong>إجمالي المكافآت:</strong> {{ total_bonus }} $</p>
+                <div class="alert alert-success">كل 5 إحالات = 2.5$</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
