@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}طلبات الإيداع{% endblock %}
+{% block content %}
+<h2>⏳ طلبات الإيداع المعلقة</h2>
+<hr>
+<table class="table">
+    <tr><th>#</th><th>المستخدم</th><th>المبلغ</th><th>TXID</th><th>الإجراءات</th></tr>
+    {% for d in deposits %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ d.user.email }}</td>
+        <td>{{ d.amount }} USDT</td>
+        <td><code>{{ d.tx_hash[:10] }}...</code></td>
+        <td>
+            <form method="POST" action="{{ url_for('confirm_deposit', deposit_id=d.id) }}" style="display:inline">
+                <button class="btn btn-sm btn-success">✅</button>
+            </form>
+            <form method="POST" action="{{ url_for('reject_deposit', deposit_id=d.id) }}" style="display:inline">
+                <button class="btn btn-sm btn-danger">❌</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
