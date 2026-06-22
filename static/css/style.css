@@ -1,0 +1,325 @@
+/* ==================== الخطوط والأساسيات ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    direction: rtl;
+}
+
+/* ==================== الألوان الأساسية ==================== */
+:root {
+    --primary: #2d3436;
+    --secondary: #e94560;
+    --gold: #f9ca24;
+    --success: #00b894;
+    --danger: #e74c3c;
+    --dark: #1a1a2e;
+    --light: #f5f6fa;
+    --shadow: 0 5px 20px rgba(0,0,0,0.08);
+    --radius: 12px;
+}
+
+/* ==================== الشريط العلوي (Navbar) ==================== */
+.navbar-custom {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navbar-custom .navbar-brand {
+    color: #f9ca24 !important;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.navbar-custom .navbar-brand i {
+    margin-left: 10px;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #f9ca24 !important;
+    transform: translateY(-2px);
+}
+
+/* ==================== البطاقات (Cards) ==================== */
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border: none;
+    padding: 18px 25px;
+    font-weight: 700;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* ==================== الأزرار ==================== */
+.btn-primary-custom {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(26, 26, 46, 0.3);
+    color: #f9ca24;
+}
+
+.btn-success-custom {
+    background: linear-gradient(135deg, #00b894, #00a381);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-success-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.3);
+}
+
+.btn-danger-custom {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-danger-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+}
+
+.btn-warning-custom {
+    background: linear-gradient(135deg, #f9ca24, #f0932b);
+    border: none;
+    color: #1a1a2e;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-warning-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(249, 202, 36, 0.3);
+}
+
+/* ==================== شارات (Badges) ==================== */
+.badge-gold {
+    background: #f9ca24;
+    color: #1a1a2e;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.badge-success-custom {
+    background: #00b894;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.badge-danger-custom {
+    background: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* ==================== جدول الإيداعات ==================== */
+.table-custom {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.table-custom thead {
+    background: #1a1a2e;
+    color: white;
+}
+
+.table-custom tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table-custom tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* ==================== الصفحة الرئيسية ==================== */
+.hero-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 80px 0;
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.hero-section h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+}
+
+.hero-section h1 .highlight {
+    color: #f9ca24;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ==================== الرصيد ==================== */
+.balance-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: var(--radius);
+    padding: 30px;
+    text-align: center;
+}
+
+.balance-card .amount {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f9ca24;
+}
+
+.balance-card .label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ==================== النماذج (Forms) ==================== */
+.form-control-custom {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control-custom:focus {
+    border-color: #1a1a2e;
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 46, 0.15);
+}
+
+/* ==================== الإشعارات (Alerts) ==================== */
+.alert-custom {
+    border-radius: var(--radius);
+    padding: 18px 25px;
+    border: none;
+}
+
+.alert-success-custom {
+    background: #d4edda;
+    color: #155724;
+}
+
+.alert-danger-custom {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.alert-warning-custom {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* ==================== الإحالات ==================== */
+.referral-box {
+    background: #f8f9fa;
+    border: 2px dashed #1a1a2e;
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+}
+
+.referral-box .code {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* ==================== الفوتر (Footer) ==================== */
+.footer {
+    background: #1a1a2e;
+    color: rgba(255,255,255,0.7);
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: #f9ca24;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+/* ==================== تحسينات للشاشات الصغيرة ==================== */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .balance-card .amount {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+}
