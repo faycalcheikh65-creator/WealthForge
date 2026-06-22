@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}تسجيل الدخول{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header"><h4>🔑 تسجيل الدخول</h4></div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3"><input type="email" name="email" class="form-control" placeholder="البريد الإلكتروني" required></div>
+                    <div class="mb-3"><input type="password" name="password" class="form-control" placeholder="كلمة المرور" required></div>
+                    <button type="submit" class="btn btn-success w-100">دخول</button>
+                </form>
+                <hr>
+                <p class="text-center">ليس لديك حساب؟ <a href="{{ url_for('register') }}">سجل الآن</a></p>
+                <p class="text-center"><a href="{{ url_for('forgot_password') }}">نسيت كلمة المرور؟</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
