@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks - WealthForge{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card-dark" data-aos="fade-up">
+            <div class="card-header">
+                <h4><i class="fas fa-tasks text-warning"></i> All Tasks</h4>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    <!-- Task Categories -->
+                    <div class="col-md-3">
+                        <div class="list-group list-group-dark">
+                            <a href="#" class="list-group-item list-group-item-action active" style="background: var(--gold); color: #1a1a2e; border: none;">
+                                <i class="fas fa-list"></i> All Tasks
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" style="background: var(--bg-card); color: var(--text-primary); border-color: rgba(249,202,36,0.05);">
+                                <i class="fas fa-play"></i> Daily
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" style="background: var(--bg-card); color: var(--text-primary); border-color: rgba(249,202,36,0.05);">
+                                <i class="fas fa-video"></i> Video
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" style="background: var(--bg-card); color: var(--text-primary); border-color: rgba(249,202,36,0.05);">
+                                <i class="fas fa-share-alt"></i> Social
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" style="background: var(--bg-card); color: var(--text-primary); border-color: rgba(249,202,36,0.05);">
+                                <i class="fas fa-poll"></i> Survey
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" style="background: var(--bg-card); color: var(--text-primary); border-color: rgba(249,202,36,0.05);">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tasks List -->
+                    <div class="col-md-9">
+                        <div class="row g-3">
+                            <!-- Daily Task -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1);">
+                                    <div class="display-3 mb-3">📅</div>
+                                    <h5>Daily Click</h5>
+                                    <p class="text-secondary">Earn {{ "%.2f"|format(user.get_task_reward()) }}$</p>
+                                    <p class="text-secondary small">Complete once every 24 hours</p>
+                                    {% if user.can_do_task() %}
+                                        <a href="{{ url_for('do_task') }}" class="btn btn-gold">
+                                            <i class="fas fa-check"></i> Complete
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary" disabled>⏳ Wait 24h</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Watch Video -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1);">
+                                    <div class="display-3 mb-3">🎬</div>
+                                    <h5>Watch Video</h5>
+                                    <p class="text-secondary">Earn {{ "%.2f"|format(user.get_task_reward() * 1.0) }}$</p>
+                                    <p class="text-secondary small">Watch a short video</p>
+                                    {% if user.can_do_task() %}
+                                        <a href="{{ url_for('task_watch_video') }}" class="btn btn-gold">
+                                            <i class="fas fa-play"></i> Watch
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary" disabled>⏳ Wait 24h</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Social Share -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1);">
+                                    <div class="display-3 mb-3">📱</div>
+                                    <h5>Social Share</h5>
+                                    <p class="text-secondary">Earn {{ "%.2f"|format(user.get_task_reward() * 1.2) }}$</p>
+                                    <p class="text-secondary small">Share on social media</p>
+                                    {% if user.can_do_task() %}
+                                        <a href="{{ url_for('task_social_share') }}" class="btn btn-gold">
+                                            <i class="fas fa-share-alt"></i> Share
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary" disabled>⏳ Wait 24h</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Survey -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1);">
+                                    <div class="display-3 mb-3">📊</div>
+                                    <h5>Survey</h5>
+                                    <p class="text-secondary">Earn {{ "%.2f"|format(user.get_task_reward() * 1.5) }}$</p>
+                                    <p class="text-secondary small">Complete a quick survey</p>
+                                    {% if user.can_do_task() %}
+                                        <a href="{{ url_for('task_survey') }}" class="btn btn-gold">
+                                            <i class="fas fa-poll"></i> Start
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary" disabled>⏳ Wait 24h</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Download -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1);">
+                                    <div class="display-3 mb-3">📥</div>
+                                    <h5>Download App</h5>
+                                    <p class="text-secondary">Earn {{ "%.2f"|format(user.get_task_reward() * 0.8) }}$</p>
+                                    <p class="text-secondary small">Download and install</p>
+                                    {% if user.can_do_task() %}
+                                        <a href="{{ url_for('task_download') }}" class="btn btn-gold">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-secondary" disabled>⏳ Wait 24h</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Coming Soon -->
+                            <div class="col-md-6">
+                                <div class="task-card p-4 text-center" style="border: 1px solid rgba(249,202,36,0.1); opacity: 0.5;">
+                                    <div class="display-3 mb-3">🎮</div>
+                                    <h5>Play & Earn</h5>
+                                    <p class="text-secondary">Coming Soon</p>
+                                    <button class="btn btn-secondary" disabled>🔒 Locked</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
