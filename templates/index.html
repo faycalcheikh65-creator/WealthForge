@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}الرئيسية - WealthForge{% endblock %}
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-3">💰 WealthForge</h1>
+    <p class="lead">منصة الأرباح اليومية عبر USDT</p>
+    <a href="{{ url_for('register') }}" class="btn btn-success btn-lg">🚀 ابدأ الآن</a>
+    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">🔑 تسجيل الدخول</a>
+</div>
+<div class="row">
+    <div class="col-md-4"><div class="card text-center"><div class="card-body"><h5>💰 إيداع 2$ فقط</h5></div></div></div>
+    <div class="col-md-4"><div class="card text-center"><div class="card-body"><h5>📈 مضاعفة أسبوعية</h5></div></div></div>
+    <div class="col-md-4"><div class="card text-center"><div class="card-body"><h5>👥 إحالات 2.5$</h5></div></div></div>
+</div>
+{% endblock %}
